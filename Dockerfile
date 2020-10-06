@@ -7,7 +7,8 @@ ENV FD_VERSION="1.3" \
     FD_ADMIN_PASSWORD="fd-admim" \
     FD_BASE_DN="dc=example,dc=org" \
     FD_PASSWORD_MIN_LENGTH="16" \
-    FD_TIMEZONE="Europe/Berlin"
+    FD_TIMEZONE="Europe/Berlin" \
+    FD_INCLUDE_RFC2307BIS="false"
 
 # Add the FD schemas and the fd-config.ldif
 COPY image/fd-${FD_VERSION}  /var/local/ldap/fusiondirectory

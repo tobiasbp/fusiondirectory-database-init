@@ -33,5 +33,10 @@ sed -i "s|{{ FD_TIMEZONE }}|${FD_TIMEZONE}|g" ${LDIF}
 sed -i "s|{{ DN_ROLE_ADMIN_BASE64 }}|${DN_ROLE_ADMIN_BASE64}|g" ${LDIF}
 sed -i "s|{{ DN_USER_ADMIN_BASE64 }}|${DN_USER_ADMIN_BASE64}|g" ${LDIF}
 
+# Remove file rfc2307bis.schema
+if [ ${FD_INCLUDE_RFC2307BIS} == "false" ]; then
+  rm -v /var/local/ldap/fusiondirectory/schema/fd-core/rfc2307bis.schema
+fi
+
 echo "Schema files ready in dir: /var/local/ldap/fusiondirectory/schema"
 echo "Ldif files ready in dir: /var/local/ldap/fusiondirectory/ldif"
