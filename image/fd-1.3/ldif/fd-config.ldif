@@ -3,7 +3,7 @@ changeType: add
 o: fd
 dc: fd
 ou: fd
-description: Fusiondirectory root
+description: FusionDirectory root
 objectClass: top
 objectClass: dcObject
 objectClass: organization
