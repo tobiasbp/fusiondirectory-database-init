@@ -35,7 +35,7 @@ sed -i "s|{{ DN_USER_ADMIN_BASE64 }}|${DN_USER_ADMIN_BASE64}|g" ${LDIF}
 
 # Remove file rfc2307bis.schema
 if [ ${FD_INCLUDE_RFC2307BIS} == "false" ]; then
-  rm -v /var/local/ldap/fusiondirectory/schema/fd-core/rfc2307bis.schema
+  rm -v /var/local/ldap/fusiondirectory/schema/core/rfc2307bis.schema
 fi
 
 echo "Schema files ready in dir: /var/local/ldap/fusiondirectory/schema"
