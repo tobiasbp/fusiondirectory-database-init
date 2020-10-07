@@ -5,9 +5,8 @@ A utility Docker image for preparing schema and ldif files to initialize an
 LDAP database for use with [FusionDirectory](https://www.fusiondirectory.org/) version [1.3](https://fusiondirectory-user-manual.readthedocs.io/en/1.3/index.html).
 
 # Usage
-The schema files are stored in _/var/local/ldap/fusiondirectory/schema/core_ and,
-_/var/local/ldap/fusiondirectory/schema/plugins_.
-The .ldif file(s) are in in _/var/local/ldap/fusiondirectory/ldif_.
+The schema files are stored in _/var/fd/schema/core_ and _/var/fd/schema/plugins_.
+The .ldif file(s) are in in _/var/fd/ldif_.
 
 This image has been tested with Docker image [osixia/docker-openldap](https://github.com/osixia/docker-openldap)
 which is able to read schema and ldif files when the container is run the first time.

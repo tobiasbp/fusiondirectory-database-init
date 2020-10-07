@@ -1,7 +1,17 @@
 #!/bin/sh
 
+
+SRC=/tmp/fd
+DEST=/var/fd
+
+# Create the destination dir
+mkdir -p ${DEST}
+
+# Copy the fd files (The user could have mounted a volume here)
+cp -r ${SRC}/* ${DEST}
+
 # The ldif to update
-LDIF=/var/local/ldap/fusiondirectory/ldif/fd-config.ldif
+LDIF=${DEST}/ldif/fd-config.ldif
 
 # Encrypt the password
 FD_ADMIN_PASSWORD_ENCRYPTED=`echo "${FD_ADMIN_PASSWORD}" | mkpasswd -m sha512crypt --stdin`
@@ -20,23 +30,19 @@ sed -i "s|{{ FD_ADMIN_PASSWORD }}|\{crypt\}${FD_ADMIN_PASSWORD_ENCRYPTED}|g" ${L
 # Set admins UID
 sed -i "s|{{ FD_ADMIN_UID }}|${FD_ADMIN_UID}|g" ${LDIF}
 
-# Set org name (Env from base image)
-#sed -i "s|{{ FD_ORGANIZATION }}|${FD_ORGANIZATION}|g" ${LDIF}
-
 # Set minimum password length
 sed -i "s|{{ FD_PASSWORD_MIN_LENGTH }}|${FD_PASSWORD_MIN_LENGTH}|g" ${LDIF}
 
 # Set timezone
 sed -i "s|{{ FD_TIMEZONE }}|${FD_TIMEZONE}|g" ${LDIF}
 
-# Assigne rights ti admin user
+# Assign rights to admin user
 sed -i "s|{{ DN_ROLE_ADMIN_BASE64 }}|${DN_ROLE_ADMIN_BASE64}|g" ${LDIF}
 sed -i "s|{{ DN_USER_ADMIN_BASE64 }}|${DN_USER_ADMIN_BASE64}|g" ${LDIF}
 
 # Remove file rfc2307bis.schema
 if [ ${FD_INCLUDE_RFC2307BIS} == "false" ]; then
-  rm -v /var/local/ldap/fusiondirectory/schema/core/rfc2307bis.schema
+  rm -v ${DEST}/schema/core/rfc2307bis.schema
 fi
 
-echo "Schema files ready in dir: /var/local/ldap/fusiondirectory/schema"
-echo "Ldif files ready in dir: /var/local/ldap/fusiondirectory/ldif"
+find ${DEST}
