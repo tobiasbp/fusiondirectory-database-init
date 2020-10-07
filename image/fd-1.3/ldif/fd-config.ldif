@@ -21,7 +21,7 @@ changeType: add
 objectClass: organizationalUnit
 ou: groups
 
-dn: uid={{ FD_ADMIN_UID }},ou=people,ou=fd,{{ FD_BASE_DN }}
+dn: uid={{ FD_ADMIN_UID }},ou=fd,{{ FD_BASE_DN }}
 changeType: add
 objectClass: inetOrgPerson
 objectClass: organizationalPerson

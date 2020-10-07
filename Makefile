@@ -1,5 +1,5 @@
 NAME = tobiasbp/fusiondirectory-database-init
-VERSION = 0.0.5
+VERSION = 0.0.6
 
 .PHONY: all build build-nocache
 

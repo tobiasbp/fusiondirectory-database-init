@@ -27,8 +27,8 @@ Configure the generated ldif file(s) by setting the following environment variab
 The following shows the defaults for the variables.
 
 * FD_VERSION="1.3"
-* FD_ADMIN_UID="fd-admim"
-* FD_ADMIN_PASSWORD="fd-admim"
+* FD_ADMIN_UID="fd-admin"
+* FD_ADMIN_PASSWORD="fd-admin"
 * FD_BASE_DN="dc=example,dc=org"
 * FD_PASSWORD_MIN_LENGTH="16"
 * FD_TIMEZONE="Europe/Berlin"
