@@ -18,7 +18,7 @@ FD_ADMIN_PASSWORD_ENCRYPTED=`echo "${FD_ADMIN_PASSWORD}" | mkpasswd -m sha512cry
 
 # Create hashes for assignment of rights for admin
 DN_ROLE_ADMIN_BASE64=`echo -n "cn=admin,ou=aclroles,ou=fd,${FD_BASE_DN}" | base64`
-DN_USER_ADMIN_BASE64=`echo -n "uid=${FD_ADMIN_UID},ou=fd,${FD_BASE_DN}" | base64`
+DN_USER_ADMIN_BASE64=`echo -n "uid=${FD_ADMIN_UID},ou=people,ou=fd,${FD_BASE_DN}" | base64`
 
 
 # Set base DN
